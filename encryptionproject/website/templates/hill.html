@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Hill Cipher{% endblock %}
+
+{% block content %}
+
+<div class="hill-container">
+  <div class="hill-box">
+    <h2 class="text">Hill Encryption</h2>
+    <input type="text" id="encryptInput" placeholder="Enter text to encrypt">
+    <input type="text" id="keyInputEncrypt" placeholder="Enter key matrix">
+    <button onclick="encryptHill()">Encrypt</button>
+    <p id="encryptedText"></p>
+  </div>
+
+  <div class="hill-box">
+    <h2 class="text">Hill Decryption</h2>
+    <input type="text" id="decryptInput" placeholder="Enter text to decrypt">
+    <input type="text" id="keyInputDecrypt" placeholder="Enter key matrix">
+    <button onclick="decryptHill()">Decrypt</button>
+    <p id="decryptedText"></p>
+  </div>
+</div>
+
+<script>
+    function encryptHill() {
+      var inputText = document.getElementById('encryptInput').value;
+      var keyInput = document.getElementById('keyInputEncrypt').value;
+      var keyMatrix = parseKeyMatrix(keyInput);
+  
+      fetch('/hill/encrypt', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            plaintext: inputText,
+            key: keyMatrix
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('encryptedText').innerHTML = data.encryptedText;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  
+    function decryptHill() {
+      var inputText = document.getElementById('decryptInput').value;
+      var keyInput = document.getElementById('keyInputDecrypt').value;
+      var keyMatrix = parseKeyMatrix(keyInput);
+  
+      fetch('/hill/decrypt', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            ciphertext: inputText,
+            key: keyMatrix
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('decryptedText').innerHTML = data.decryptedText;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  
+    function parseKeyMatrix(keyInput) {
+      // Assuming the key matrix is entered as a string of comma-separated values
+      var values = keyInput.split(',');
+      var size = Math.sqrt(values.length);
+      var matrix = [];
+  
+      for (var i = 0; i < values.length; i++) {
+        matrix.push(parseInt(values[i]));
+      }
+  
+      return matrix.length === size * size ? matrix : null;
+    }
+  </script>
+  
+
+{% endblock %}

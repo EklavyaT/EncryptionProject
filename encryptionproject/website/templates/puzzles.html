@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text">Cipher Puzzles</h1>
+
+  <div class="puzzle">
+    <h3 class="text">Caesar Cipher Puzzle</h3>
+    <p class="text">
+      Decrypt the following ciphertext using a Caesar cipher with a shift of 3:<br>
+      <code class="text">L oljkw zruvw rqh vwulqj rqh zrunlqj.</code>
+    </p>
+    <button onclick="toggleAnswer('caesar')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="caesar-answer">
+      The answer is: "I like tacos one without lettuce."
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Caesar Cipher Puzzle 2</h3>
+    <p class="text">
+      Decrypt the following ciphertext using a Caesar cipher with a shift of 10:<br>
+      <code class="text">Qnuuxb ynagxj wxybn xybnkjaayx jxu yjxyb.</code>
+    </p>
+    <button onclick="toggleAnswer('caesar2')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="caesar2-answer">
+      The answer is: "Dancing zebras sound like xylophones."
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Atbash Cipher Puzzle</h3>
+    <p class="text">
+      Decrypt the following ciphertext using the Atbash cipher:<br>
+      <code class="text">Svool dliow xlfgrxv zmb z tlrmt.</code>
+    </p>
+    <button onclick="toggleAnswer('atbash')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="atbash-answer">
+      The answer is: "Hello world welcome to sleep."
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Atbash Cipher Puzzle 2</h3>
+    <p class="text">
+      Decrypt the following ciphertext using the Atbash cipher:<br>
+      <code class="text">Svzw rm dsviv gsvb blf yv ivob dsviv.</code>
+    </p>
+    <button onclick="toggleAnswer('atbash2')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="atbash2-answer">
+      The answer is: "This is only one way to hide this."
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Vigenère Cipher Puzzle</h3>
+    <p class="text">
+      Decrypt the following ciphertext using the Vigenère cipher with the key "KEY":<br>
+      <code class="text">Jevpq, wyqq jq rbvb ycpwnlshtdw!</code>
+    </p>
+    <button onclick="toggleAnswer('vigenere')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="vigenere-answer">
+      The answer is: "Hello, nice to meet you!"
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Vigenère Cipher Puzzle 2</h3>
+    <p class="text">
+      Decrypt the following ciphertext using the Vigenère cipher with the key "PUZZLE":<br>
+      <code class="text">Ibbu, tjpq ut hbcj pvu fwpzhqhyvz!</code>
+    </p>
+    <button onclick="toggleAnswer('vigenere2')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="vigenere2-answer">
+      The answer is: "Good, luck in your encryption journey!"
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Hill Cipher Puzzle</h3>
+    <p class="text">
+      Decrypt the following ciphertext using the Hill cipher with the key matrix:<br>
+      <code class="text">[2 3; 1 4]</code><br>
+      Ciphertext: <code class="text">YWKOD OYRUW UFGCU YSRNR YKCHL ZWVQQ YWKOD</code>
+    </p>
+    <button onclick="toggleAnswer('hill')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="hill-answer">
+      The answer is: "LEMON LIMES ARE TASTY LIKE CANDY LEMON"
+    </p>
+  </div>
+
+  <div class="puzzle">
+    <h3 class="text">Hill Cipher Puzzle 2</h3>
+    <p class="text">
+      Decrypt the following ciphertext using the Hill cipher with the key matrix:<br>
+      <code class="text">[3 2; 4 1]</code><br>
+      Ciphertext: <code class="text">ZRDZH AHYZL DZTJM QWYZL AZLSW BQRHT ZRDZH</code>
+    </p>
+    <button onclick="toggleAnswer('hill2')" class="reveal-button">Reveal Answer</button>
+    <p class="answer text" id="hill2-answer">
+      The answer is: "WORLD HELLO THESE PUZZLES ARE FUN WORLD"
+    </p>
+  </div>
+
+  <script>
+    function toggleAnswer(cipher) {
+      var answer = document.getElementById(cipher + '-answer');
+      var button = document.querySelector('button[data-cipher="' + cipher + '"]');
+      if (answer.style.display === 'none') {
+        answer.style.display = 'block';
+        button.textContent = 'Hide Answer';
+      } else {
+        answer.style.display = 'none';
+        button.textContent = 'Reveal Answer';
+      }
+    }
+  </script>
+{% endblock %}
