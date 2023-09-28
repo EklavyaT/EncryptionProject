@@ -1,0 +1,156 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+
+
+
+<body>
+  <div class="cipher-container">
+    <div class="cipher">
+      <h2 class="cipher-title text">Caesar Cipher</h2>
+      <div class="cipher-content">
+        <div class="cipher-history">
+          <h3 class="cipher-subtitle">History</h3>
+          <p class="cipher-text">
+            The Caesar cipher, named after Julius Caesar, is one of the simplest and most widely known encryption techniques. It is a substitution cipher where each letter in the plaintext is shifted a certain number of positions down or up the alphabet.
+          </p>
+        </div>
+        <div class="cipher-details">
+          <h3 class="cipher-subtitle">How it works</h3>
+          <p class="cipher-text">
+            The Caesar cipher shifts each letter in the plaintext by a fixed number of positions. For example, with a shift of 3, 'A' would become 'D', 'B' would become 'E', and so on. The same shift is applied for both encryption and decryption.
+          </p>
+          <h3 class="cipher-subtitle">Strengths</h3>
+          <ul class="cipher-text">
+            <li>Simple and easy to understand</li>
+            <li>Fast and efficient</li>
+          </ul>
+          <h3 class="cipher-subtitle">Weaknesses</h3>
+          <ul class="cipher-text">
+            <li>Relatively weak and easily breakable</li>
+            <li>Susceptible to frequency analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cipher">
+      <h2 class="cipher-title text">Atbash Cipher</h2>
+      <div class="cipher-content">
+        <div class="cipher-history">
+          <h3 class="cipher-subtitle">History</h3>
+          <p class="cipher-text">
+            The Atbash cipher is one of the earliest known substitution ciphers, dating back to ancient times. It is a monoalphabetic substitution cipher where each letter is replaced by its mirror image in the alphabet.
+          </p>
+        </div>
+        <div class="cipher-details">
+          <h3 class="cipher-subtitle">How it works</h3>
+          <p class="cipher-text">
+            The Atbash cipher replaces each letter in the plaintext with its corresponding mirror image in the alphabet. For example, 'A' would become 'Z', 'B' would become 'Y', and so on. The same substitution is used for both encryption and decryption.
+          </p>
+          <h3 class="cipher-subtitle">Strengths</h3>
+          <ul class="cipher-text">
+            <li>Simple and easy to implement</li>
+            <li>Provides some level of confidentiality</li>
+          </ul>
+          <h3 class="cipher-subtitle">Weaknesses</h3>
+          <ul class="cipher-text">
+            <li>Highly susceptible to frequency analysis</li>
+            <li>Does not handle spaces or punctuation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cipher">
+      <h2 class="cipher-title text">Vigenère Cipher</h2>
+      <div class="cipher-content">
+        <div class="cipher-history">
+          <h3 class="cipher-subtitle">History</h3>
+          <p class="cipher-text">
+            The Vigenère cipher, invented by Giovan Battista Bellaso in the 16th century, is a polyalphabetic substitution cipher. It is an extension of the Caesar cipher where the shift varies based on the position in the plaintext.
+          </p>
+        </div>
+        <div class="cipher-details">
+          <h3 class="cipher-subtitle">How it works</h3>
+          <p class="cipher-text">
+            The Vigenère cipher uses a keyword or phrase to determine the shifting of letters in the plaintext. Each letter in the keyword corresponds to a shift value. The encryption is performed by shifting each letter in the plaintext by the corresponding shift value. Decryption is done by shifting the letters in the opposite direction.
+          </p>
+          <h3 class="cipher-subtitle">Strengths</h3>
+          <ul class="cipher-text">
+            <li>More secure than simple substitution ciphers</li>
+            <li>Resistant to frequency analysis</li>
+          </ul>
+          <h3 class="cipher-subtitle">Weaknesses</h3>
+          <ul class="cipher-text">
+            <li>Vulnerable to cryptanalysis if the key length is known</li>
+            <li>Repeating patterns in the key can be exploited</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cipher">
+      <h2 class="cipher-title text">Playfair Cipher</h2>
+      <div class="cipher-content">
+        <div class="cipher-history">
+          <h3 class="cipher-subtitle">History</h3>
+          <p class="cipher-text">
+            The Playfair cipher, invented by Charles Wheatstone in 1854, is a digraph substitution cipher. It was the first practical digraph substitution cipher and was used extensively in World War I and World War II.
+          </p>
+        </div>
+        <div class="cipher-details">
+          <h3 class="cipher-subtitle">How it works</h3>
+          <p class="cipher-text">
+            The Playfair cipher uses a 5x5 grid of letters called the Playfair square. The encryption is performed by converting digraphs (pairs of letters) in the plaintext into different letters based on their positions in the grid. Decryption is done by reversing the process.
+          </p>
+          <h3 class="cipher-subtitle">Strengths</h3>
+          <ul class="cipher-text">
+            <li>Resistant to frequency analysis</li>
+            <li>Handles digraphs instead of single letters</li>
+          </ul>
+          <h3 class="cipher-subtitle">Weaknesses</h3>
+          <ul class="cipher-text">
+            <li>Requires the use of a 5x5 grid, which can be error-prone</li>
+            <li>Does not handle spaces or punctuation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cipher">
+      <h2 class="cipher-title text">Hill Cipher</h2>
+      <div class="cipher-content">
+        <div class="cipher-history">
+          <h3 class="cipher-subtitle">History</h3>
+          <p class="cipher-text">
+            The Hill cipher, invented by Lester S. Hill in 1929, is a polygraphic substitution cipher that operates on groups of letters. It was one of the first practical applications of matrix theory in cryptography.
+          </p>
+        </div>
+        <div class="cipher-details">
+          <h3 class="cipher-subtitle">How it works</h3>
+          <p class="cipher-text">
+            The Hill cipher uses matrix multiplication to encrypt and decrypt the plaintext. The key is represented by a square matrix, and the plaintext is divided into blocks of letters. Each block is then multiplied by the key matrix to obtain the ciphertext. Decryption involves multiplying the ciphertext blocks by the inverse of the key matrix.
+          </p>
+          <h3 class="cipher-subtitle">Strengths</h3>
+          <ul class="cipher-text">
+            <li>Provides a high level of security</li>
+            <li>Resistant to various attacks, including frequency analysis</li>
+          </ul>
+          <h3 class="cipher-subtitle">Weaknesses</h3>
+          <ul class="cipher-text">
+            <li>Requires the use of matrix operations</li>
+            <li>Key management can be challenging for large key sizes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{%endblock%}
